@@ -2,22 +2,29 @@
 const faker = require('faker');
 const { Product } = require('./index.js');
 
-// const airpodsMax = new Product();
-// airpodsMax.brand = 'Apple';
-// airpodsMax.name = 'AirPods Max';
-// airpodsMax.model = 'MGYN3AM/A';
-// airpodsMax.options = ['Space Grey', 'Sky blue', 'Green', 'Pink', 'Silver'];
-// airpodsMax.sku = [6373460, 6376542, 6376549, 6376546, 6373463];
-// airpodsMax.productImages = [''];
-// airpodsMax.custImages = [{ image: '', review: '' }];
-// airpodsMax.rating = 4.4;
-// airpodsMax.reviews[5] = 51;
-// airpodsMax.reviews[4] = 13;
-// airpodsMax.reviews[3] = 9;
-// airpodsMax.reviews[2] = 3;
-// airpodsMax.reviews[1] = 2;
-// airpodsMax.expertReviews = 7;
-// airpodsMax.answeredQuestions = 30;
+// the pretty product
+const airpodsMax = new Product();
+airpodsMax.brand = 'Apple';
+airpodsMax.name = 'AirPods Max';
+airpodsMax.model = 'MGYN3AM/A';
+airpodsMax.options = ['Space Grey', 'Sky blue', 'Green', 'Pink', 'Silver'];
+airpodsMax.sku = [6373460, 6376542, 6376549, 6376546, 6373463];
+airpodsMax.productImages = [''];
+airpodsMax.custImages = [{ image: '', review: '' }];
+airpodsMax.rating = 4.4;
+airpodsMax.reviews[5] = 51;
+airpodsMax.reviews[4] = 13;
+airpodsMax.reviews[3] = 9;
+airpodsMax.reviews[2] = 3;
+airpodsMax.reviews[1] = 2;
+airpodsMax.expertReviews = 7;
+airpodsMax.answeredQuestions = 30;
+
+// save the airpodsMax to the db
+airpodsMax.save()
+  .catch((err) => {
+    console.log(err);
+  });
 
 // helper function for data generation
 const stringLengthGenerator = (func, length) => {
@@ -75,10 +82,10 @@ const seed = () => {
     // randomProduct.answeredQuestions = Math.floor(Math.random() * 100);
 
     randomProduct.save()
-      // .then((results) => {
-      //   // eslint-disable-next-line no-console
-      //   console.log('written to the db: ', results, 'index: ', i);
-      // })
+      .then((results) => {
+        // eslint-disable-next-line no-console
+        console.log('written to the db: ', results, 'index: ', i);
+      })
       .catch((err) => {
         console.log(err);
       });
