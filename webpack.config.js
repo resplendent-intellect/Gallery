@@ -1,10 +1,11 @@
 const path = require('path');
+const DIST_DIR = path.join(__dirname, '/client')
 
 module.exports = {
   mode: 'development',
   entry: './client/src/index.jsx',
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(DIST_DIR, 'dist'),
     filename: 'bundle.js',
   },
   module: {
