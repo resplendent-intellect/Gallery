@@ -4,7 +4,7 @@ const { getProduct } = require('../database/query.js');
 
 const app = express();
 // serve up static files
-app.use(express.static('../public'));
+app.use(express.static(`${__dirname}/../client/dist`));
 
 // middleware
 app.use(bodyParser.json());
