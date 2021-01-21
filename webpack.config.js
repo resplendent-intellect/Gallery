@@ -22,33 +22,3 @@ module.exports = {
     ],
   },
 };
-
-// const path = require('path');
-
-// const DIST_DIR = path.join(__dirname, '/client');
-
-// module.exports = {
-//   mode: 'development',
-//   entry: './client/src/index.jsx',
-//   output: {
-//     path: path.resolve(DIST_DIR, 'dist'),
-//     filename: 'bundle.js',
-//   },
-//   module: {
-//     rules: [
-//       {
-//         test: /\.jsx?$/,
-//         exclude: /node_modules/,
-//         include: [
-//           path.resolve(__dirname, 'src'),
-//         ],
-//         use: {
-//           loader: 'babel-loader',
-//           options: {
-//             presets: ['@babel/preset-env'],
-//           },
-//         },
-//       },
-//     ],
-//   },
-// };

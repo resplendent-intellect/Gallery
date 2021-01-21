@@ -20,6 +20,8 @@ app.get('/products/:id', (req, res) => {
     if (err) {
       // eslint-disable-next-line no-console
       console.log(err);
+      // handle the err so the client sees it
+      res.send(404);
     } else {
       res.status(200).send(data);
     }
