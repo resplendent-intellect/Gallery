@@ -1,1 +1,3 @@
 node_modules
+
+/bestbuy-photo-gallery/client/dist/bundle.js
