@@ -27,7 +27,6 @@ class App extends React.Component {
       url: `http://localhost:3000/products/${id}`,
       success: (product) => {
         // do stuff if the req goes through ok
-        console.log(product);
         this.setState({ product });
       },
       error: (err) => {
@@ -37,7 +36,6 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.state.product);
     const { product } = this.state;
     const {
       brand,
@@ -48,17 +46,21 @@ class App extends React.Component {
     } = product;
     return (
       <div>
-        <ProductTitle
-          brand={brand}
-          name={name}
-          options={options}
-          model={model}
-          sku={sku}
-        />
-        <hr />
-        <ReviewBar />
-        <hr />
-        <PhotoGallery />
+        <div>
+          <ProductTitle
+            brand={brand}
+            name={name}
+            options={options}
+            model={model}
+            sku={sku}
+          />
+        </div>
+        <div>
+          <ReviewBar />
+        </div>
+        <div>
+          <PhotoGallery />
+        </div>
       </div>
     );
   }
