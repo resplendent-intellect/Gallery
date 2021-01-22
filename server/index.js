@@ -24,6 +24,7 @@ app.get('/products/:id', (req, res) => {
       res.send(404);
     } else {
       res.status(200).send(data);
+      console.log('Server has data', data);
     }
   });
 });

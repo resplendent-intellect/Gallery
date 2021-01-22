@@ -1,3 +1,4 @@
+/* eslint-disable import/extensions */
 import React from 'react';
 import MainPhoto from './MainPhoto.jsx';
 import ImageGallery from './ImageGallery.jsx';

@@ -3,6 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 
+import airPodsMax from '../../database/dummyData.js';
 import ProductTitle from './product-title/ProductTitle.jsx';
 import ReviewBar from './review-bar/ReviewBar.jsx';
 import PhotoGallery from './photo-gallery/PhotoGallery.jsx';
@@ -11,7 +12,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      product: {},
+      product: airPodsMax,
     };
   }
 
@@ -29,13 +30,14 @@ class App extends React.Component {
         console.log(product);
         this.setState({ product });
       },
-      error: () => {
-        // do stuff if the req fails
+      error: (err) => {
+        console.log('client didnt get the data', err);
       },
     });
   }
 
   render() {
+    console.log(this.state.product);
     const { product } = this.state;
     const {
       brand,
