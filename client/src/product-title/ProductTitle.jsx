@@ -3,10 +3,19 @@ import PropTypes from 'prop-types';
 import styles from './ProductTitle.module.css';
 
 class ProductTitle extends React.Component {
+  static mouseOver(event) {
+    const e = event;
+    e.target.style.color = 'white';
+  }
+
+  static mouseOut(event) {
+    const e = event;
+    e.target.style = styles.brand;
+  }
+
   constructor(props) {
     super(props);
     this.state = {
-
     };
   }
 
@@ -19,10 +28,31 @@ class ProductTitle extends React.Component {
       sku,
     } = this.props;
     return (
-      <div>
-        <div className={styles.brand}>{brand}</div>
-        <div>{`${brand} - ${name} - ${options[0]}`}</div>
-        <div>{`Model: ${model} SKU: ${sku[0]}`}</div>
+      <div className={styles.productTitle}>
+        <div
+          className={styles.brand}
+          onMouseOver={this.mouseOver}
+          onFocus={this.mouseOver}
+          onMouseOut={this.mouseOut}
+          onBlur={this.mouseOut}
+        >
+          {brand}
+        </div>
+        <h1 className={styles.product}>{`${brand} - ${name} - ${options[0]}`}</h1>
+        <div>
+          <span className={styles.modelSku}>
+            <strong>Model: </strong>
+            <span className={styles.modelSkuValue}>
+              {model}
+            </span>
+          </span>
+          <span className={styles.modelSku}>
+            <strong>SKU: </strong>
+            <span className={styles.modelSkuValue}>
+              {sku[0]}
+            </span>
+          </span>
+        </div>
       </div>
     );
   }
