@@ -1,5 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
+
 const { getProduct } = require('../database/query.js');
 
 const app = express();
@@ -11,6 +13,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: false,
 }));
+app.use(cors());
 
 const port = 3000;
 
@@ -24,7 +27,6 @@ app.get('/products/:id', (req, res) => {
       res.send(404);
     } else {
       res.status(200).send(data);
-      console.log('Server has data', data);
     }
   });
 });

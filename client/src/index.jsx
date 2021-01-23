@@ -18,7 +18,7 @@ class App extends React.Component {
 
   componentDidMount() {
     // hard coded to get airPods Max
-    this.getProduct('6007276dd52d0d43b75fbd6a');
+    this.getProduct('600c6e2499b914700ff047a5');
   }
 
   getProduct(id) {
@@ -43,6 +43,7 @@ class App extends React.Component {
       options,
       model,
       sku,
+      productImages,
     } = product;
     return (
       <div>
@@ -59,7 +60,7 @@ class App extends React.Component {
           <ReviewBar />
         </div>
         <div>
-          <PhotoGallery />
+          <PhotoGallery productImages={productImages} />
         </div>
       </div>
     );
