@@ -1,0 +1,21 @@
+.mainPhoto {
+  vertical-align: middle;
+  box-sizing: border-box;
+}
+
+.singleImage {
+  box-sizing: border-box;
+  max-width: 54px;
+  max-height: 54px;
+  vertical-align: middle;
+}
+
+.singleImageButton {
+  align-items: center;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.imageList {
+  margin-right: 8px;
+}

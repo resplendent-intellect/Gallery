@@ -7,15 +7,29 @@ import ImageGallery from './ImageGallery.jsx';
 class PhotoGallery extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      currentPhoto: '',
+    };
+    this.handleImageHover = this.handleImageHover.bind(this);
+  }
+
+  handleImageHover(hoverImage) {
+    const image = hoverImage;
+    this.setState({
+      currentPhoto: image,
+    });
   }
 
   render() {
     const { productImages } = this.props;
+    const { currentPhoto } = this.state;
     return (
       <div>
-        <MainPhoto mainImage={productImages[0]} />
-        <ImageGallery productImages={productImages} />
+        <MainPhoto mainImage={currentPhoto} />
+        <ImageGallery
+          imageGallery={productImages}
+          changeImage={this.handleImageHover}
+        />
       </div>
     );
   }

@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './PhotoGallery.module.css';
 
 const MainPhoto = (props) => {
   const { mainImage } = props;
   return (
     <div>
-
-      <img src={mainImage} alt="Main goes here" />
+      <img className={styles.mainPhoto} src={mainImage} alt="Main goes here" />
     </div>
   );
 };
