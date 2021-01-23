@@ -14,9 +14,8 @@
   margin-bottom: -5px;
 }
 
-.mouseOverBrand {
+.brand:hover {
   color: #001E73;
-  cursor: pointer;
 }
 
 .productTitle {

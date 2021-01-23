@@ -14,8 +14,8 @@ class PhotoGallery extends React.Component {
     const { productImages } = this.props;
     return (
       <div>
-        <MainPhoto image={productImages[0]} />
-        <ImageGallery />
+        <MainPhoto mainImage={productImages[0]} />
+        <ImageGallery productImages={productImages} />
       </div>
     );
   }
