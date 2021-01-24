@@ -5,8 +5,10 @@ import styles from './PhotoGallery.module.css';
 const MainPhoto = (props) => {
   const { mainImage } = props;
   return (
-    <div>
-      <img className={styles.mainPhoto} src={mainImage} alt="Main goes here" />
+    <div className={styles.mainPhotoWrapper}>
+      <button type="button" className={styles.mainPhotoButton}>
+        <img className={styles.mainPhoto} src={mainImage} alt="Main goes here" />
+      </button>
     </div>
   );
 };

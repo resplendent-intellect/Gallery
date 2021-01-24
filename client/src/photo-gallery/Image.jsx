@@ -8,10 +8,10 @@ const Image = (props) => {
     changeImage,
   } = props;
   return (
-    <div>
-      <button onMouseEnter={() => { changeImage(image); }} type="button" className={styles.singleImageButton}>
+    <div className={styles.singleImageWrapper}>
+      <div onMouseEnter={() => { changeImage(image); }} type="button" className={styles.singleImageButton}>
         <img className={styles.singleImage} src={image} alt="single" />
-      </button>
+      </div>
     </div>
   );
 };

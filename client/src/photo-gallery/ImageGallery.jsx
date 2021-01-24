@@ -12,12 +12,12 @@ const ImageGallery = (props) => {
     changeImage,
   } = props;
   const imageList = imageGallery.map((image) => (
-    <div className={styles.imageList}>
+    <div className={styles.singleImageContainer}>
       <Image image={image} changeImage={changeImage} />
     </div>
   ));
   return (
-    <ul>{imageList}</ul>
+    <ul className={styles.imageList}>{imageList}</ul>
   );
 };
 
