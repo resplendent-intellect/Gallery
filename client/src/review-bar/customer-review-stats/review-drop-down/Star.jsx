@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Star = () => (
-  <div>Star</div>
+  <div></div>
 );
 
 export default Star;

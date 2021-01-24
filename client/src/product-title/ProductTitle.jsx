@@ -24,7 +24,7 @@ class ProductTitle extends React.Component {
         >
           {brand}
         </div>
-        <h1 className={styles.product}>{`${brand} - ${name} - ${options[0]}`}</h1>
+        <h1 className={styles.product}>{`${brand} - ${name} - ${options[4]}`}</h1>
         <div>
           <span className={styles.modelSku}>
             <strong>Model: </strong>

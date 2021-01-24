@@ -4,9 +4,9 @@ import Star from './Star.jsx';
 
 const Bar = function (props) {
 // map over the different bar ratings to get paritially filled bars
+// this will be a single bar
   return (
     <div>
-      This is a single bar rating
       <Star />
     </div>
   );

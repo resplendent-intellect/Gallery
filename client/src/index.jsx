@@ -44,6 +44,10 @@ class App extends React.Component {
       model,
       sku,
       productImages,
+      reviews,
+      expertReviews,
+      answeredQuestions,
+      rating,
     } = product;
     return (
       <div>
@@ -57,7 +61,12 @@ class App extends React.Component {
           />
         </div>
         <div>
-          <ReviewBar />
+          <ReviewBar
+            reviews={reviews}
+            expertReviews={expertReviews}
+            answeredQuestions={answeredQuestions}
+            rating={rating}
+          />
         </div>
         <div>
           <PhotoGallery productImages={productImages} />

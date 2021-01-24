@@ -1,0 +1,25 @@
+.reviewBar {
+  display: flex;
+  flex-direction: row;
+  color: #0046be;
+}
+
+.customerReviewStats {
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  margin-bottom: 8px;
+  margin-right: 8px;
+  border-right: 1px solid #c5cbd5;
+  padding-right: 8px;
+}
+
+.expertReviews {
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  margin-bottom: 8px;
+  margin-right: 8px;
+  border-right: 1px solid #c5cbd5;
+  padding-right: 8px;
+}
