@@ -1,18 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './PhotoGallery.module.css';
 
 const MainPhoto = (props) => {
-  const { image } = props;
+  const { mainImage } = props;
   return (
-    <div>
-
-      <img src={image} alt="Main goes here" />
+    <div className={styles.mainPhotoWrapper}>
+      <button type="button" className={styles.mainPhotoButton}>
+        <img className={styles.mainPhoto} src={mainImage} alt="Main goes here" />
+      </button>
     </div>
   );
 };
 
 MainPhoto.propTypes = {
-  image: PropTypes.string.isRequired,
+  mainImage: PropTypes.string.isRequired,
 };
 
 export default MainPhoto;

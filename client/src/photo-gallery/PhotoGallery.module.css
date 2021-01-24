@@ -1,0 +1,61 @@
+.mainPhoto {
+  vertical-align: middle;
+  /* horizonal-align: middle; */
+  box-sizing: border-box;
+  max-height: 846px;
+  max-width: 1000px;
+  transform: scale(1) translate(0px, 0px);
+}
+.mainPhotoButton {
+  box-sizing: border-box;
+  /* justify-content: center; */
+  border: none;
+  padding: 0;
+  background: none;
+}
+
+.mainPhotoWrapper {
+  box-sizing: border-box;
+  height: 640px;
+  display: flex;
+  justify-content: center;
+}
+
+.singleImage {
+  box-sizing: border-box;
+  max-width: 54px;
+  max-height: 54px;
+  vertical-align: middle;
+}
+
+.singleImageWrapper {
+  box-sizing: border-box;
+}
+
+.singleImageButton {
+  width: 60px;
+  height: 60px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  box-sizing: border-box;
+  border: 1px solid rgb(190, 187, 187);
+}
+
+.singleImageButton:hover {
+  border: 2px solid black;
+}
+
+.singleImageContainer {
+  margin-right: 8px;
+}
+
+.imageList {
+  display: flex;
+  flex-direction: row;
+}
+
+.photoGallery {
+  width: 600px;
+}
