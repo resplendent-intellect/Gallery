@@ -22,12 +22,22 @@ class ReviewBar extends React.Component {
     } = this.props;
     return (
       <div className={styles.reviewBar}>
-        <CustomerReviewStats
-          reviews={reviews}
-          rating={rating}
-        />
-        <ExpertReviews expertReviews={expertReviews} />
-        <AnsweredQuestions answeredQuestions={answeredQuestions} />
+        <div className={styles.customerReviewStats}>
+          <CustomerReviewStats
+            reviews={reviews}
+            rating={rating}
+          />
+        </div>
+        <div className={styles.expertReviews}>
+          <ExpertReviews
+            expertReviews={expertReviews}
+          />
+        </div>
+        <div className={styles.answeredQuestions}>
+          <AnsweredQuestions
+            answeredQuestions={answeredQuestions}
+          />
+        </div>
       </div>
     );
   }

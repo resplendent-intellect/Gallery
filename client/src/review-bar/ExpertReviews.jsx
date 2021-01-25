@@ -5,7 +5,7 @@ import styles from './ReviewBar.module.css';
 const ExpertReviews = (props) => {
   const { expertReviews } = props;
   return (
-    <div className={styles.expertReviews}>
+    <div>
       {`${expertReviews} Expert Reviews`}
     </div>
   );

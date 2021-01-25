@@ -11,9 +11,9 @@ class BarGraph extends React.Component {
 
   render() {
     return (
-      <div>
-        <Bar />
-      </div>
+      <dialog>
+        <img src="" alt="review breakdown" />
+      </dialog>
     );
   }
 }

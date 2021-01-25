@@ -17,6 +17,21 @@
   padding-right: 8px;
   cursor: pointer;
 }
+.customerReviewStatsWrap {
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+}
+
+.customerReviewStatsWrap:hover {
+  color: #001E73;
+  text-decoration: underline;
+}
+
+.customerReviews:hover {
+  color: #001E73;
+  text-decoration: underline;
+}
 
 .expertReviews {
   display: flex;
@@ -27,4 +42,54 @@
   border-right: 1px solid #c5cbd5;
   padding-right: 8px;
   cursor: pointer;
+}
+
+.expertReviews:hover {
+  color: #001E73;
+  text-decoration: underline;
+}
+
+.answeredQuestions {
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.answeredQuestions:hover {
+  color: #001E73;
+  text-decoration: underline;
+}
+
+.stars {
+  background-color: white;
+}
+
+.caret {
+  padding-left: 5px;
+}
+
+.reviewDropDown {
+  position: absolute;
+  transform: translate(-46%, 6%);
+  border: 1px solid #c5cbd5;
+  box-shadow: 0 0 2px 0 rgb(0 0 0 / 30%);
+  border-radius: 4px;
+  z-index: 999;
+  width: 300px;
+  height: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #0046be;
+  background-color: white;
+}
+
+.readReviews {
+  box-sizing: border-box;
+  padding-top: 10px;
+}
+
+.readReviews:hover {
+  color: #001E73;
+  text-decoration: underline;
 }
