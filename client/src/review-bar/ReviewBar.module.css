@@ -2,6 +2,9 @@
   display: flex;
   flex-direction: row;
   color: #0046be;
+  font-family: 'Roboto', sans-serif;
+  font-size: 13px;
+  font-weight: 2px;
 }
 
 .customerReviewStats {
@@ -12,6 +15,7 @@
   margin-right: 8px;
   border-right: 1px solid #c5cbd5;
   padding-right: 8px;
+  cursor: pointer;
 }
 
 .expertReviews {
@@ -22,4 +26,5 @@
   margin-right: 8px;
   border-right: 1px solid #c5cbd5;
   padding-right: 8px;
+  cursor: pointer;
 }
