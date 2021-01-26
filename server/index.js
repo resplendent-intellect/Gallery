@@ -16,6 +16,10 @@ app.use(bodyParser.urlencoded({
 }));
 app.use('/products/:id', express.static(`${__dirname}/../client/dist`));
 
+app.get('/', (req, res) => {
+  res.redirect('/products/1');
+});
+
 const port = 3001;
 
 app.get('/api/products/:id', (req, res) => {

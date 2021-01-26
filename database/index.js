@@ -14,6 +14,7 @@ db.once('open', () => {
 });
 
 const productSchema = new Schema({
+  _id: Number,
   brand: String,
   name: String,
   model: String,

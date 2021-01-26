@@ -1,9 +1,11 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable no-console */
 const faker = require('faker');
 const { Product } = require('./index.js');
 
-// the pretty product
+// airpods Max data
 const airpodsMax = new Product();
+airpodsMax._id = 1;
 airpodsMax.brand = 'Apple';
 airpodsMax.name = 'AirPods Max';
 airpodsMax.model = 'MGYN3AM/A';
@@ -46,6 +48,7 @@ const generateList = (func) => {
 const seed = () => {
   for (let i = 0; i <= 100; i += 1) {
     const randomProduct = new Product({
+      _id: i + 2,
       brand: faker.company.companyName(),
       name: faker.commerce.productName(),
       model: stringLengthGenerator(faker.random.alphaNumeric, 10),
@@ -64,22 +67,6 @@ const seed = () => {
       expertReviews: Math.floor(Math.random() * 10),
       answeredQuestions: Math.floor(Math.random() * 100),
     });
-
-    // randomProduct.brand = faker.company.companyName();
-    // randomProduct.name = faker.commerce.productName();
-    // randomProduct.model = stringLengthGenerator(faker.random.alphaNumeric, 10);
-    // randomProduct.options = generateList(faker.random.word);
-    // randomProduct.sku = generateList(faker.random.number);
-    // randomProduct.productImages = generateList(faker.image.imageUrl);
-    // randomProduct.custImages = { image: faker.image.imageUrl(), review: faker.image.imageUrl() };
-    // randomProduct.reviews[5] = Math.floor(Math.random() * 100);
-    // randomProduct.reviews[4] = Math.floor(Math.random() * 100);
-    // randomProduct.reviews[3] = Math.floor(Math.random() * 100);
-    // randomProduct.reviews[2] = Math.floor(Math.random() * 100);
-    // randomProduct.reviews[1] = Math.floor(Math.random() * 100);
-    // randomProduct.rating = Math.random() * 5;
-    // randomProduct.expertReviews = Math.floor(Math.random() * 10);
-    // randomProduct.answeredQuestions = Math.floor(Math.random() * 100);
 
     randomProduct.save()
       .then((results) => {
