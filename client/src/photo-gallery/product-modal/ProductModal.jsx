@@ -16,8 +16,8 @@ const ProductModal = (props) => {
     <div className={styles.productModal}>
       <div className={styles.productModalTitle}>
         <div className={styles.productImages}>
-          <h2 className={styles.productImagesTitle}>Product Images</h2>
-          <h2>Customer Images</h2>
+          <div className={styles.productImagesTitle}>Product Images</div>
+          <div className={styles.customerImagesTitle}>Customer Images</div>
         </div>
         <div>
           <div className={styles.modalX} onClick={close} tabIndex={0} role="button" onKeyPress={close}>X</div>

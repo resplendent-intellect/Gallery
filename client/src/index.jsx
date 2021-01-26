@@ -16,22 +16,16 @@ class App extends React.Component {
     };
   }
 
+  // airpods Max id 600c6e2499b914700ff047a5
   componentDidMount() {
-    // hard coded to get airPods Max
-    this.getProduct('600c6e2499b914700ff047a5');
+    this.getProduct();
   }
 
-  getProduct(id) {
-    $.ajax({
-      method: 'GET',
-      url: `http://localhost:3000/products/${id}`,
-      success: (product) => {
-        // do stuff if the req goes through ok
-        this.setState({ product });
-      },
-      error: (err) => {
-        console.log('client didnt get the data', err);
-      },
+  getProduct() {
+    $.get(`http://localhost:3001/api${window.location.pathname}`, (product) => {
+      this.setState({
+        product,
+      });
     });
   }
 

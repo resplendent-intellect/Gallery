@@ -1,23 +1,24 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-
 const { getProduct } = require('../database/query.js');
 
 const app = express();
+
 // serve up static files
-app.use(express.static(`${__dirname}/../client/dist`));
+// app.use(express.static(`${__dirname}/../client/dist`));
 
 // middleware
-app.use(bodyParser.json());
+app.use(cors());
+// app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: false,
 }));
-app.use(cors());
+app.use('/products/:id', express.static(`${__dirname}/../client/dist`));
 
-const port = 3000;
+const port = 3001;
 
-app.get('/products/:id', (req, res) => {
+app.get('/api/products/:id', (req, res) => {
   const { id } = req.params;
   getProduct(id, (err, data) => {
     if (err) {
