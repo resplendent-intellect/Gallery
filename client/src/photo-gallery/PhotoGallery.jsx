@@ -24,7 +24,11 @@ const PhotoGallery = (props) => {
         changeImage={handleImageHover}
         click={() => { setIsOpen(true); }}
       />
-      <ProductModal open={isOpen} close={() => { setIsOpen(false); }} />
+      <ProductModal
+        open={isOpen}
+        close={() => { setIsOpen(false); }}
+        productImages={productImages}
+      />
     </div>
   );
 };
