@@ -5,13 +5,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import ReviewDropDown from './review-drop-down/ReviewDropDown.jsx';
 import Reviews from './Reviews.jsx';
-// import Stars from './Stars.jsx';
 import styles from '../ReviewBar.module.css';
 
 const CustomerReviewStats = (props) => {
-  const {
-    rating,
-  } = props;
+  const { rating } = props;
   const [isOpen, setIsOpen] = useState(false);
 
   const handleOnClick = () => {

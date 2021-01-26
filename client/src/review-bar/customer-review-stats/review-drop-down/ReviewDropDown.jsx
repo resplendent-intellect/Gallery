@@ -1,13 +1,10 @@
 /* eslint-disable import/extensions */
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import PropTypes from 'prop-types';
 import styles from '../../ReviewBar.module.css';
-import BarGraph from './BarGraph.jsx';
 
 const ReviewDropDown = (props) => {
-  const { open, close } = props;
+  const { open } = props;
   if (!open) {
     return null;
   }
@@ -23,7 +20,6 @@ const ReviewDropDown = (props) => {
 };
 
 ReviewDropDown.propTypes = {
-  close: PropTypes.func.isRequired,
   open: PropTypes.bool.isRequired,
 };
 
