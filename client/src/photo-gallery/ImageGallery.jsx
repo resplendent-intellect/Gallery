@@ -10,9 +10,10 @@ const ImageGallery = (props) => {
   const {
     imageGallery,
     changeImage,
+    click,
   } = props;
   const imageList = imageGallery.map((image) => (
-    <div className={styles.singleImageContainer}>
+    <div className={styles.singleImageContainer} onClick={click} onKeyPress={click} role="button" tabIndex={0}>
       <Image image={image} changeImage={changeImage} />
     </div>
   ));
@@ -24,6 +25,7 @@ const ImageGallery = (props) => {
 ImageGallery.propTypes = {
   imageGallery: PropTypes.instanceOf(Array).isRequired,
   changeImage: PropTypes.func.isRequired,
+  click: PropTypes.func.isRequired,
 };
 
 export default ImageGallery;

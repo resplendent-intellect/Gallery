@@ -1,40 +1,37 @@
 /* eslint-disable import/extensions */
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import MainPhoto from './MainPhoto.jsx';
 import ImageGallery from './ImageGallery.jsx';
 import styles from './PhotoGallery.module.css';
+import ProductModal from './product-modal/ProductModal.jsx';
 
-class PhotoGallery extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      currentPhoto: 'https://best-buy-hr.s3-us-west-1.amazonaws.com/aws-images/airpodsMax1.jpg',
-    };
-    this.handleImageHover = this.handleImageHover.bind(this);
-  }
+const PhotoGallery = (props) => {
+  const [currentPhoto, setCurrentPhoto] = useState('https://best-buy-hr.s3-us-west-1.amazonaws.com/aws-images/airpodsMax1.jpg');
+  const [isOpen, setIsOpen] = useState(false);
 
-  handleImageHover(hoverImage) {
+  const handleImageHover = (hoverImage) => {
     const image = hoverImage;
-    this.setState({
-      currentPhoto: image,
-    });
-  }
+    setCurrentPhoto(image);
+  };
 
-  render() {
-    const { productImages } = this.props;
-    const { currentPhoto } = this.state;
-    return (
-      <div className={styles.photoGallery}>
-        <MainPhoto mainImage={currentPhoto} />
-        <ImageGallery
-          imageGallery={productImages}
-          changeImage={this.handleImageHover}
-        />
-      </div>
-    );
-  }
-}
+  const { productImages } = props;
+  return (
+    <div className={styles.photoGallery}>
+      <MainPhoto mainImage={currentPhoto} click={() => { setIsOpen(true); }} />
+      <ImageGallery
+        imageGallery={productImages}
+        changeImage={handleImageHover}
+        click={() => { setIsOpen(true); }}
+      />
+      <ProductModal
+        open={isOpen}
+        close={() => { setIsOpen(false); }}
+        productImages={productImages}
+      />
+    </div>
+  );
+};
 
 PhotoGallery.propTypes = {
   productImages: PropTypes.instanceOf(Array).isRequired,

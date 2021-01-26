@@ -20,6 +20,7 @@
 
 .productTitle {
   margin-bottom: 16px;
+  font-family: 'Roboto', sans-serif;
 }
 
 .product {
@@ -43,7 +44,8 @@
 .modelSku {
   padding-top: 10px;
   padding-right: 10px;
-  font: 11px;
+  font-size: 13px;
+
   display:inline-block;
 }
 
