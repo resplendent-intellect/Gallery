@@ -1,6 +1,5 @@
 .mainPhoto {
   vertical-align: middle;
-  /* horizonal-align: middle; */
   box-sizing: border-box;
   max-height: 846px;
   max-width: 1000px;
@@ -8,7 +7,6 @@
 }
 .mainPhotoButton {
   box-sizing: border-box;
-  /* justify-content: center; */
   border: none;
   padding: 0;
   background: none;
@@ -67,7 +65,6 @@
   top: 0%;
   border: 1px solid #c5cbd5;
   box-shadow: 0 0 2px 0 rgb(0 0 0 / 30%);
-  /* box-sizing: border-box; */
   border-radius: 4px;
   z-index: 1000;
   width: 97vw;
