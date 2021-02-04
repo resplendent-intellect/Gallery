@@ -54,6 +54,7 @@
     "flexbox": "0.0.3",
     "jquery": "^3.5.1",
     "mongoose": "^5.11.12",
+    "nodemon": "^2.0.7",
     "prop-types": "^15.7.2",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
