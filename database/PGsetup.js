@@ -1,5 +1,8 @@
+const path = require('path');
 const { Client } = require('pg');
 const { PGconfig, tables, tableMakers } = require('./PGconfig.js');
+
+const datafile = path.join('/tmp/data.csv');
 
 // setup user with password from PGconfig
 // create db from PGconfig
@@ -11,11 +14,9 @@ function DBQuery(client, queryText) {
   return new Promise((resolve, reject) => {
     client.query(queryText)
       .then((result) => {
-        // console.log(result);
         resolve(result);
       })
       .catch((err) => {
-        // console.log(err.stack);
         reject(err);
       });
   });
@@ -50,12 +51,11 @@ function setupTables() {
       .then(() => console.log(`connected to ${database} database`))
       .catch((err) => reject(err))
       .then(DBQuery(dbClient, `DROP TABLE IF EXISTS ${tables.join(', ')} CASCADE`))
-      .then(DBQuery(dbClient, tableMakers[0])
-        .then((result) => console.log(result)))
+      .then(DBQuery(dbClient, tableMakers[0]))
       .catch((err) => reject(err))
       .finally(DBQuery(dbClient, 'SELECT table_name FROM information_schema.tables WHERE table_schema = \'public\' ORDER BY table_name')
         .then((result) => {
-          console.log(result);
+          // console.log(result);
           dbClient.end();
           resolve('table setup complete');
         })
@@ -66,13 +66,39 @@ function setupTables() {
   });
 }
 
-async function totalSetup() {
-  await setupDB()
+function populateTables() {
+  return new Promise((resolve, reject) => {
+    const dbClient = new Client({ user, password, database });
+    dbClient.connect()
+      .then(() => console.log('ready to copy data'))
+      .catch((err) => reject(err))
+      .then(DBQuery(dbClient, `COPY ${tables[0]} FROM '${datafile}' WITH DELIMITER ',' NULL 'null' CSV HEADER;`)
+        .then((result) => {
+          console.log(result);
+          dbClient.end();
+          resolve('data added to table');
+        })
+        .catch((err) => {
+          dbClient.end();
+          reject(err);
+        }));
+  });
+}
+
+async function populate() {
+  await populateTables()
     .then((message) => console.log(message))
-    .catch((err) => console.log(err.stack));
-  setupTables()
-    .then((message2) => console.log(message2))
     .catch((err) => console.log(err.stack));
 }
 
-totalSetup();
+async function prepSetup() {
+  await setupDB()
+    .then((message) => console.log(message))
+    .catch((err) => console.log(err.stack));
+  await setupTables()
+    .then((message2) => console.log(message2))
+    .catch((err) => console.log(err.stack));
+  await populate();
+}
+
+prepSetup();
