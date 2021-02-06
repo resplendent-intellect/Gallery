@@ -20,8 +20,11 @@ exports.tableMakers = [
     brand VARCHAR (50)
   );`,
   `CREATE TABLE ${exports.tables[1]} (
-    productId
-    answerCount
+    product_id INT PRIMARY KEY,
+    answerCount INT,
+    CONSTRAINT fk_product_info,
+     FOREIGN KEY(product_id)
+      REFERENCES product_info(product_id)
   );`,
   `CREATE TABLE ${exports.tables[2]} (
     productId
