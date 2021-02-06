@@ -51,8 +51,7 @@ function setupTables() {
       .then(() => console.log(`connected to ${database} database`))
       .catch((err) => reject(err))
       .then(DBQuery(dbClient, `DROP TABLE IF EXISTS ${tables.join(', ')} CASCADE`))
-      .then(DBQuery(dbClient, tableMakers[0]))
-      .then(DBQuery(dbClient, tableMakers[1]))
+      .then(Promise.all(tableMakers.map((value) => DBQuery(dbClient, value))))
       .catch((err) => reject(err))
       .finally(DBQuery(dbClient, 'SELECT table_name FROM information_schema.tables WHERE table_schema = \'public\' ORDER BY table_name')
         .then((result) => {
@@ -73,12 +72,11 @@ function populateTables() {
     dbClient.connect()
       .then(() => console.log('ready to copy data'))
       .catch((err) => reject(err))
-      .then(DBQuery(dbClient, `COPY ${tables[0]} FROM '${datafile}product_info.csv' WITH DELIMITER ',' NULL 'null' CSV HEADER;`))
-      .then(DBQuery(dbClient, `COPY ${tables[1]} FROM '${datafile}answered_questions.csv' WITH DELIMITER ',' NULL 'null' CSV HEADER;`)
+      .then(Promise.all(tables.map((value) => DBQuery(dbClient, `COPY ${value} FROM '${datafile}${value}.csv' WITH DELIMITER ',' NULL 'null' CSV HEADER;`)))
         .then((result) => {
           console.log(result);
           dbClient.end();
-          resolve('data added to table');
+          resolve('data added to tables');
         })
         .catch((err) => {
           dbClient.end();
