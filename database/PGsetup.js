@@ -1,8 +1,7 @@
-const path = require('path');
 const { Client } = require('pg');
 const { PGconfig, tables, tableMakers } = require('./PGconfig.js');
 
-const datafile = path.join('/tmp/');
+const datafile = '/tmp/';
 
 // setup user with password from PGconfig
 // create db from PGconfig

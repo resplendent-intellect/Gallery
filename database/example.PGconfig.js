@@ -22,7 +22,7 @@ exports.tableMakers = [
   );`,
   `CREATE TABLE ${exports.tables[1]} (
     product_id INT PRIMARY KEY,
-    answerCount SMALLINT,
+    answer_count SMALLINT,
     CONSTRAINT fk_product_info
      FOREIGN KEY(product_id)
       REFERENCES product_info(product_id)
