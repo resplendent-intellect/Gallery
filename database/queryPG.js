@@ -2,26 +2,35 @@ const pool = require('./indexPG.js');
 
 const mainQueryText = 'SELECT * FROM product_info NATURAL JOIN answered_questions NATURAL JOIN reviews NATURAL JOIN sku_info WHERE product_id =';
 
-// const mainQueryText = 'SELECT * FROM product_info NATURAL JOIN answered_questions NATURAL JOIN reviews WHERE product_id =';
+const skuQueryText = 'SELECT * FROM sku_info WHERE sku_id =';
 
-const productQuery = (productNum, analyze = false) => {
+const productQuery = (productNum, queryLine, analyze = false) => {
   const preState = analyze ? 'EXPLAIN ANALYZE' : '';
-  const queryText = `${preState} ${mainQueryText} ${productNum}`;
+  const queryText = `${preState} ${queryLine} ${productNum}`;
   return queryText;
 };
 
 function productInfo(productNum, analyze = false) {
   return new Promise((resolve, reject) => {
-    console.time('query');
-    pool.query(productQuery(productNum, analyze))
-      .then((result) => {
-        console.timeEnd('query');
-        resolve(result);
-      })
+    pool.query(productQuery(productNum, mainQueryText, analyze))
+      .then((result) => resolve(result))
       .catch((err) => reject(err));
   });
 }
 
-productInfo(100000)
-  .then((result) => console.log(result.rows))
+function skuInfo(skuNum, analyze = false) {
+  return new Promise((resolve, reject) => {
+    pool.query(productQuery(skuNum, skuQueryText, analyze))
+      .then((result) => resolve(result))
+      .catch((err) => reject(err));
+  });
+}
+
+productInfo(10000098, true)
+  .then((result) => console.log(result))
   .catch((err) => console.log(err.stack));
+
+module.exports = {
+  productInfo,
+  skuInfo,
+};

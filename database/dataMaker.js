@@ -5,7 +5,7 @@ const csvWriter = require('csv-write-stream');
 const faker = require('faker');
 const { tables } = require('./PGconfig.js');
 
-const dataSize = 1000000;
+const dataSize = 11000000;
 const filepath = '/tmp/';
 
 const randoInterval = (min, max) => Math.floor((Math.random() * (max - min)) + min);
