@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --watch",
     "start": "nodemon ./server/index.js",
-    "seed": "node ./database/seed.js"
+    "letThereBeData": "node ./database/dataMaker.js",
+    "DBSetup": "node ./database/PGsetup.js"
   },
   "repository": {
     "type": "git",

@@ -26,9 +26,10 @@ function skuInfo(skuNum, analyze = false) {
   });
 }
 
-productInfo(10000098, true)
-  .then((result) => console.log(result))
-  .catch((err) => console.log(err.stack));
+// uncomment below for testing queries w/out API.
+// productInfo(10000098, true)
+//   .then((result) => console.log(result))
+//   .catch((err) => console.log(err.stack));
 
 module.exports = {
   productInfo,
