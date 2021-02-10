@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --watch",
     "start": "nodemon ./server/index.js",
-    "seed": "node ./database/seed.js"
+    "letThereBeData": "node ./database/dataMaker.js",
+    "DBSetup": "node ./database/PGsetup.js"
   },
   "repository": {
     "type": "git",
@@ -49,11 +50,14 @@
     "@fortawesome/react-fontawesome": "^0.1.14",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
+    "csv-write-stream": "^2.0.0",
     "express": "^4.17.1",
     "faker": "^5.1.0",
     "flexbox": "0.0.3",
     "jquery": "^3.5.1",
     "mongoose": "^5.11.12",
+    "nodemon": "^2.0.7",
+    "pg": "^8.5.1",
     "prop-types": "^15.7.2",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
