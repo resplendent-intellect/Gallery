@@ -13,6 +13,7 @@ function DBQuery(client, queryText) {
   return new Promise((resolve, reject) => {
     client.query(queryText)
       .then((result) => {
+        console.log(result);
         resolve(result);
       })
       .catch((err) => {
@@ -71,7 +72,8 @@ function populateTables() {
     dbClient.connect()
       .then(() => console.log('ready to copy data'))
       .catch((err) => reject(err))
-      .then(Promise.all(tables.map((value) => DBQuery(dbClient, `COPY ${value} FROM '${datafile}${value}.csv' WITH DELIMITER ',' NULL 'null' CSV HEADER;`)))
+      .then(Promise.all(tables.map((value) => DBQuery(dbClient, `COPY ${value} FROM '${datafile}${value}.csv' WITH DELIMITER ',' NULL 'null' CSV HEADER;`))))
+      .then((DBQuery(dbClient, 'CREATE INDEX product_id_index ON sku_info(product_id)'))
         .then((result) => {
           console.log(result);
           dbClient.end();

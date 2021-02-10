@@ -3,8 +3,7 @@
 
 exports.PGconfig = {
   user: 'postgres',
-  // host: 'localhost',
-  database: 'BBGallery',
+  database: 'bbgallery',
   password: 'FILL IN',
 };
 
@@ -44,10 +43,11 @@ exports.tableMakers = [
   `CREATE TABLE ${exports.tables[3]} (
     product_id INT,
     sku_id INT,
+    option_name VARCHAR (30),
     product_name VARCHAR (100),
     model_num VARCHAR (15),
     product_images VARCHAR (1000),
-    PRIMARY KEY (product_id, sku_id),
+    PRIMARY KEY (sku_id),
     CONSTRAINT fk_product_info
      FOREIGN KEY(product_id)
       REFERENCES product_info(product_id)

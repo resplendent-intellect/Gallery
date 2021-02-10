@@ -1,7 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const { getProduct } = require('../database/query.js');
+const { productInfo } = require('../database/queryPG.js');
+const { dataHandler } = require('./dataHandler.js');
+require('newrelic');
 
 const app = express();
 
@@ -19,23 +21,22 @@ app.get('/', (req, res) => {
   res.redirect('/products/1');
 });
 
-const port = 3002;
+const port = 3001;
 
 app.get('/api/products/:id', (req, res) => {
   const { id } = req.params;
-  getProduct(id, (err, data) => {
-    if (err) {
-      // eslint-disable-next-line no-console
-      console.log(err);
-      // handle the err so the client sees it
-      res.send(404);
-    } else {
+  productInfo(id)
+    .then((result) => {
+      const data = dataHandler(result);
       res.status(200).send(data);
-    }
-  });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(400).send(err);
+    });
 });
 
 app.listen(port, () => {
   // eslint-disable-next-line no-console
-  console.log(`Listening on port ${port} !`);
+  console.log(`Listening at http://localhost:${port} !`);
 });
