@@ -13,8 +13,9 @@ const randoInterval = (min, max) => Math.floor((Math.random() * (max - min)) + m
 const imageSetMaker = () => {
   const length = randoInterval(6, 10);
   const output = [];
+  const imageCats = ['cat', 'dog', 'food', 'art', 'tech'];
   for (let index = 0; index < length; index += 1) {
-    output.push('https://loremflickr.com/320/360');
+    output.push(`https://loremflickr.com/320/360/${faker.random.arrayElement(imageCats)}`);
   }
   return output;
 };
@@ -88,6 +89,7 @@ function writeReviews() {
         generatedData[3].push({
           product_id: counter,
           sku_id: skuCounter,
+          option_name: faker.lorem.words(randoInterval(1, 2)),
           product_name: faker.lorem.words(randoInterval(1, 5)),
           model_num: faker.random.alphaNumeric(9),
           product_images: JSON.stringify(imageSetMaker()),

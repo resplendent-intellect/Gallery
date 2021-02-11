@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --watch",
-    "start": "nodemon ./server/index.js",
+    "start": "nodemon ./server/indexPG.js",
     "letThereBeData": "node ./database/dataMaker.js",
     "DBSetup": "node ./database/PGsetup.js"
   },
@@ -56,6 +56,7 @@
     "flexbox": "0.0.3",
     "jquery": "^3.5.1",
     "mongoose": "^5.11.12",
+    "newrelic": "^7.1.1",
     "nodemon": "^2.0.7",
     "pg": "^8.5.1",
     "prop-types": "^15.7.2",
