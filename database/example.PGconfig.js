@@ -1,10 +1,11 @@
 // fill in appropriate data, rename as PGconfig.js
 // if table schema changes here, change the data generation file also
+// NOTE: setup is designed for root user 'postgres' to have same password as one assigned here.
 
 exports.PGconfig = {
-  user: 'postgres',
+  user: 'FILL_ME_IN',
   database: 'bbgallery',
-  password: 'FILL IN',
+  password: 'FILL_ME_IN',
 };
 
 exports.tables = [

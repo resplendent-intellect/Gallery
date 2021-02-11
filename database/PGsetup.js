@@ -24,12 +24,14 @@ function DBQuery(client, queryText) {
 
 function setupDB() {
   return new Promise((resolve, reject) => {
-    const setupClient = new Client({ user, password });
+    const setupClient = new Client({ user: 'postgres', password });
     setupClient.connect()
       .then(() => console.log('connected'))
       .catch((err) => reject(err))
       .then(DBQuery(setupClient, `DROP DATABASE IF EXISTS ${database}`))
       .then(DBQuery(setupClient, `CREATE DATABASE ${database}`))
+      .then(DBQuery(setupClient, `CREATE USER ${user} WITH ENCRYPTED PASSWORD '${password}'`))
+      .then(DBQuery(setupClient, `GRANT ALL PRIVILEGES ON DATABASE ${database} TO ${user}`))
       .catch((err) => reject(err))
       .finally(DBQuery(setupClient, 'SELECT datname FROM pg_database')
         .then((result) => {
