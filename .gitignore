@@ -2,3 +2,4 @@ node_modules
 **/database/PGconfig.js
 **/data.csv
 **/newrelic_agent.log
+**/newrelic.js
